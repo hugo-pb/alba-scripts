@@ -2,6 +2,7 @@ const fs = require("fs");
 const csv = require("csv-parser");
 const axios = require("axios");
 const { createObjectCsvWriter } = require("csv-writer");
+const { log } = require("console");
 
 const INPUT_CSV = "input.csv";
 const OUTPUT_CSV = "updated_output.csv";
@@ -21,6 +22,7 @@ async function fetchPostalCode(address) {
   } catch (error) {
     console.error(`Error fetching postal code for ${address}:`, error.message);
   }
+  console.log(`was not able to find postal code for address: ${address}`);
   return "";
 }
 
